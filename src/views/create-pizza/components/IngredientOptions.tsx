@@ -1,21 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import { Subheading } from '../../../components/typography';
 import { PIZZA_INGREDIENTS } from '../../../data';
-import Options from './Options';
+import { StoreState } from '../../../store';
+import { IngredientOption } from '../../../types';
+import {
+  isIngredientSelected,
+  selectedIngredientsSelector
+} from '../../../store/selectors';
+import { addIngredient, removeIngredient } from '../../../actions';
 import Option from './Option';
+import Options from './Options';
 
-const IngredientOptions: React.FC = () => (
-  <Options>
-    <Subheading>Ingredients</Subheading>
+type Props = {
+  selectedIngredients: IngredientOption[];
+  onAdd: (ingredient: IngredientOption) => void;
+  onRemove: (ingredient: IngredientOption) => void;
+};
 
-    {PIZZA_INGREDIENTS.map(ingredient => (
-      <Option
-        key={ingredient.name}
-        name={ingredient.name}
-        price={ingredient.price}
-      />
-    ))}
-  </Options>
-);
+class IngredientOptions extends Component<Props> {
+  onSelect = (ingredient: IngredientOption) => {
+    const { selectedIngredients, onAdd, onRemove } = this.props;
+    const isSelected = isIngredientSelected(selectedIngredients, ingredient);
+    const handlerFn = isSelected ? onRemove : onAdd;
 
-export default IngredientOptions;
+    handlerFn(ingredient);
+  };
+
+  render = () => {
+    const { selectedIngredients } = this.props;
+
+    return (
+      <Options>
+        <Subheading>Ingredients</Subheading>
+
+        <p>You can select as many as you want.</p>
+
+        {PIZZA_INGREDIENTS.map(ingredient => (
+          <Option
+            key={ingredient.id}
+            option={ingredient}
+            onSelect={() => this.onSelect(ingredient)}
+            isSelected={isIngredientSelected(selectedIngredients, ingredient)}
+          />
+        ))}
+      </Options>
+    );
+  };
+}
+
+const mapStateToProps = (state: StoreState) => {
+  const selectedIngredients = selectedIngredientsSelector(state);
+
+  return { selectedIngredients };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onAdd: (ingredient: IngredientOption) => dispatch(addIngredient(ingredient)),
+  onRemove: (ingredient: IngredientOption) =>
+    dispatch(removeIngredient(ingredient))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientOptions);

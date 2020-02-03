@@ -1,0 +1,4 @@
+export const CHOOSE_SIZE = 'CHOOSE_SIZE';
+export const CHOOSE_CRUST = 'CHOOSE_CRUST';
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export const REMOVE_INGREDIENT = 'REMOVE_INGREDIENT';

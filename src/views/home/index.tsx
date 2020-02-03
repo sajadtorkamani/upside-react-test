@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/layout';
 import Container from '../../components/layout/Container';
-import { PageIntro, PageTitle } from "../../components/typography";
+import { PageIntro, PageTitle } from '../../components/typography';
 import { CREATE_PIZZA_ROUTE, HOME_ROUTE } from '../../lib/constants';
 import BlockButton from './components/BlockButton';
 

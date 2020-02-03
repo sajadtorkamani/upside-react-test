@@ -1,17 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import { Subheading } from '../../../components/typography';
 import { PIZZA_CRUSTS } from '../../../data';
-import Options from './Options';
+import { CrustOption } from '../../../types';
+import { StoreState } from '../../../store';
+import { selectedCrustSelector } from '../../../store/selectors';
+import { chooseCrust } from '../../../actions';
 import Option from './Option';
+import Options from './Options';
 
-const CrustOptions: React.FC = () => (
-  <Options>
-    <Subheading>Crust</Subheading>
+type Props = {
+  selectedCrust?: CrustOption;
+  onSelect: (crust: CrustOption) => any;
+};
 
-    {PIZZA_CRUSTS.map(crust => (
-      <Option key={crust.name} name={crust.name} price={crust.price} />
-    ))}
-  </Options>
-);
+class CrustOptions extends Component<Props> {
+  render = () => {
+    const { selectedCrust, onSelect } = this.props;
 
-export default CrustOptions;
+    return (
+      <Options>
+        <Subheading>Crust</Subheading>
+
+        {PIZZA_CRUSTS.map(crust => (
+          <Option
+            key={crust.id}
+            option={crust}
+            onSelect={() => onSelect(crust)}
+            isSelected={!!selectedCrust && crust.id === selectedCrust.id}
+          />
+        ))}
+      </Options>
+    );
+  };
+}
+
+const mapStateToProps = (state: StoreState) => {
+  const selectedCrust = selectedCrustSelector(state);
+
+  return { selectedCrust };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onSelect: (crust: CrustOption) => dispatch(chooseCrust(crust))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CrustOptions);

@@ -2,21 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../../../theme/palette';
 import { formatMoney } from '../../../lib/utils';
+import { PizzaOption } from '../../../types';
 
 type Props = {
-  name: string;
-  price: number;
+  option: PizzaOption;
+  isSelected?: boolean;
+  onSelect?: (option: PizzaOption) => any;
 };
 
-const Option: React.FC<Props> = ({ name, price }) => (
-  <StyledOption>
-    <span className="name">{name}</span>
-    <span className="price">({formatMoney(price)})</span>
-  </StyledOption>
-);
+const Option: React.FC<Props> = ({ option, onSelect, isSelected = false }) => {
+  const handleClick = () => {
+    onSelect && onSelect(option);
+  };
 
-const StyledOption = styled.div`
-  background: ${palette.white};
+  return (
+    <StyledOption onClick={handleClick} isSelected={isSelected}>
+      <span className="name">{option.name}</span>
+      <span className="price">({formatMoney(option.price)})</span>
+    </StyledOption>
+  );
+};
+
+const StyledOption = styled.div<{ isSelected: boolean }>`
+  background: ${({ isSelected }) =>
+    isSelected ? palette.greyLight : palette.white};
   border-bottom: 1px solid ${palette.greyBorder};
   display: flex;
   font-size: 20px;
@@ -24,7 +33,6 @@ const StyledOption = styled.div`
   padding: 15px;
 
   &:hover {
-    background: ${palette.greyLight};
     cursor: pointer;
   }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import Container from '../../components/layout/Container';
-import { Heading, PageIntro, PageTitle } from '../../components/typography';
+import { Heading } from '../../components/typography';
+import Divider from '../../components/layout/Divider';
 import SizeOptions from './components/SizeOptions';
 import CrustOptions from './components/CrustOptions';
 import IngredientOptions from './components/IngredientOptions';
-import Divider from '../../components/layout/Divider';
 import OrderSummary from './components/OrderSummary';
 
 const CreatePizzaView: React.FC = () => {
