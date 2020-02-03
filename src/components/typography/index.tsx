@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import typography from '../../theme/typography';
 
 export const PageTitle = styled.h1`
+  font-size: 40px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+`;
+
+export const Heading = styled.h2`
+  font-size: 40px;
   margin-bottom: 30px;
   margin-top: 30px;
 `;

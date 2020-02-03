@@ -1,7 +1,7 @@
 import React from 'react';
 import { PIZZA_SIZES } from '../../../data';
 import { Subheading } from '../../../components/typography';
-import Options from './Options';
+import Options from './options';
 import Option from './Option';
 
 const SizeOptions: React.FC = () => (

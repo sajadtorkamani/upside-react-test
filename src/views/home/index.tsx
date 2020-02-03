@@ -10,7 +10,7 @@ const HomeView: React.FC = () => {
   return (
     <Layout data-testid="home-view">
       <Container>
-        <PageTitle>Home.</PageTitle>
+        <PageTitle>Welcome.</PageTitle>
 
         <PageIntro>What would you like to do?</PageIntro>
 
