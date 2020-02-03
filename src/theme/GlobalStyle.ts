@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin-bottom: 15px;
   }
+  
+  a {
+    //color: inherit;
+  }
 `;
 
 export default GlobalStyle;

@@ -14,8 +14,6 @@ const Header: React.FC = () => {
           <Link to={HOME_ROUTE}>iPizza</Link>
         </Navbar.Brand>
 
-        <Navbar.Toggle />
-
         <Navbar.Collapse className="justify-content-end">
           <Link to={CREATE_PIZZA_ROUTE}>
             <Navbar.Text>Create pizza</Navbar.Text>
