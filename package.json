@@ -12,7 +12,10 @@
     "format:check": "prettier --check \"src/**/*\"",
     "format:fix": "prettier --write \"src/**/*\"",
     "stylelint:check": "stylelint \"src/**/*.tsx\"",
-    "stylelint:fix": "stylelint \"src/**/*.tsx\" --fix"
+    "stylelint:fix": "stylelint \"src/**/*.tsx\" --fix",
+    "cyp:open": "cypress open",
+    "cyp:run": "cypress run",
+    "cyp:debug": "DEBUG=cypress:webpack cypress run"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^4.1.1",
