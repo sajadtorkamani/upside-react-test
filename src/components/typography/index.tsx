@@ -7,6 +7,11 @@ export const PageTitle = styled.h1`
 `;
 
 export const Subheading = styled.h3`
+  font-size: 26px;
   font-weight: ${typography.fontWeights.robotoRegular};
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+`;
+
+export const PageIntro = styled.p`
+  margin-bottom: 30px;
 `;
