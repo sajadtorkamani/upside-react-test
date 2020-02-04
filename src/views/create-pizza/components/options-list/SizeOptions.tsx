@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { PIZZA_SIZES } from '../../../data';
-import { Subheading } from '../../../components/typography';
-import { chooseSize } from '../../../actions';
-import { PizzaOption } from '../../../types';
-import { StoreState } from '../../../store';
-import { selectedSizeSelector } from '../../../store/selectors';
+import { PIZZA_SIZES } from '../../../../data';
+import { Subheading } from '../../../../components/typography';
+import { chooseSize } from '../../../../actions';
+import { PizzaOption } from '../../../../types';
+import { StoreState } from '../../../../store';
+import { selectedSizeSelector } from '../../../../store/selectors';
 import Option from './Option';
 import Options from './Options';
 

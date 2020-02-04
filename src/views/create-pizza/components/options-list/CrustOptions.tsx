@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Subheading } from '../../../components/typography';
-import { PIZZA_CRUSTS } from '../../../data';
-import { CrustOption } from '../../../types';
-import { StoreState } from '../../../store';
-import { selectedCrustSelector } from '../../../store/selectors';
-import { chooseCrust } from '../../../actions';
+import { Subheading } from '../../../../components/typography';
+import { PIZZA_CRUSTS } from '../../../../data';
+import { CrustOption } from '../../../../types';
+import { StoreState } from '../../../../store';
+import { selectedCrustSelector } from '../../../../store/selectors';
+import { chooseCrust } from '../../../../actions';
 import Option from './Option';
 import Options from './Options';
 

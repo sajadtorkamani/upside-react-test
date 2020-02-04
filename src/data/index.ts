@@ -3,7 +3,7 @@ import { PizzaOption } from '../types';
 export const PIZZA_SIZES: PizzaOption[] = [
   { id: 1, name: 'Small', price: 2.0 },
   { id: 2, name: 'Medium', price: 5.0 },
-  { id: 3, name: 'Large', price: 1.0 }
+  { id: 3, name: 'Large', price: 10.0 }
 ];
 
 export const PIZZA_CRUSTS: PizzaOption[] = [

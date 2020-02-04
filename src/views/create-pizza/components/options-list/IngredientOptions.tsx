@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Subheading } from '../../../components/typography';
-import { PIZZA_INGREDIENTS } from '../../../data';
-import { StoreState } from '../../../store';
-import { IngredientOption } from '../../../types';
+import { Subheading } from '../../../../components/typography';
+import { PIZZA_INGREDIENTS } from '../../../../data';
+import { StoreState } from '../../../../store';
+import { IngredientOption } from '../../../../types';
 import {
   isIngredientSelected,
   selectedIngredientsSelector
-} from '../../../store/selectors';
-import { addIngredient, removeIngredient } from '../../../actions';
+} from '../../../../store/selectors';
+import { addIngredient, removeIngredient } from '../../../../actions';
 import Option from './Option';
 import Options from './Options';
 
@@ -35,7 +35,7 @@ class IngredientOptions extends Component<Props> {
       <Options>
         <Subheading>Ingredients</Subheading>
 
-        <p>You can select as many as you want.</p>
+        <p>Please select atleast one.</p>
 
         {PIZZA_INGREDIENTS.map(ingredient => (
           <Option

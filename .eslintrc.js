@@ -31,8 +31,7 @@ module.exports = {
     'react/jsx-handler-names': WARN,
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': WARN,
-    camelcase: OFF,
-    '@typescript-eslint/camelcase': [ERROR, { properties: 'never' }]
+    camelcase: OFF
   },
   overrides: [
     {
@@ -50,6 +49,8 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': OFF,
         '@typescript-eslint/no-explicit-any': OFF,
         '@typescript-eslint/no-use-before-define': OFF,
+        '@typescript-eslint/camelcase': [ERROR, { properties: 'never' }],
+        '@typescript-eslint/no-non-null-assertion': OFF,
         'react/prop-types': OFF
       }
     },

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../../../theme/palette';
-import { formatMoney } from '../../../lib/utils';
-import { PizzaOption } from '../../../types';
+import palette from '../../../../theme/palette';
+import { formatMoney } from '../../../../lib/utils';
+import { PizzaOption } from '../../../../types';
 
 type Props = {
   option: PizzaOption;
@@ -34,10 +34,6 @@ const StyledOption = styled.div<{ isSelected: boolean }>`
 
   &:hover {
     cursor: pointer;
-  }
-
-  .name {
-    margin-right: 10px;
   }
 
   .price {
