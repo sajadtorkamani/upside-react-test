@@ -3,9 +3,11 @@ import {
   ADD_INGREDIENT,
   CHOOSE_CRUST,
   CHOOSE_SIZE,
+  PLACE_ORDER,
   REMOVE_INGREDIENT
 } from '../action-types';
-import { CrustOption, IngredientOption, SizeOption } from '../types';
+import { CrustOption, IngredientOption, Order, SizeOption } from '../types';
+import { OrderState } from '../reducers/orderReducer';
 
 export const chooseSize = (size: SizeOption): StoreAction => ({
   type: CHOOSE_SIZE,
@@ -27,4 +29,9 @@ export const removeIngredient = (
 ): StoreAction => ({
   type: REMOVE_INGREDIENT,
   payload: ingredient
+});
+
+export const placeOrder = (order: Order): StoreAction => ({
+  type: PLACE_ORDER,
+  payload: order
 });

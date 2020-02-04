@@ -35,7 +35,7 @@ class IngredientOptions extends Component<Props> {
       <Options>
         <Subheading>Ingredients</Subheading>
 
-        <p>Please select atleast one.</p>
+        <p>Please select at least one.</p>
 
         {PIZZA_INGREDIENTS.map(ingredient => (
           <Option

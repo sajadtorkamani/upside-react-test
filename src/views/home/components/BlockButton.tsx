@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 
 const BlockButton = styled(Button)`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 100%;
 `;
 

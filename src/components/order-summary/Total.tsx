@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import typography from '../../../../theme/typography';
+import typography from '../../theme/typography';
 
 const Total = styled.div`
   font-size: 34px;

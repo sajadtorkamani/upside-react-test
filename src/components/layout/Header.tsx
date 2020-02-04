@@ -3,7 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../theme/palette';
-import { CREATE_PIZZA_ROUTE, HOME_ROUTE } from '../../lib/constants';
+import {
+  CREATE_ORDER_ROUTE,
+  HOME_ROUTE,
+  PREVIOUS_ORDERS_ROUTE
+} from '../../lib/constants';
 import Container from './Container';
 
 const Header: React.FC = () => {
@@ -15,8 +19,12 @@ const Header: React.FC = () => {
         </Navbar.Brand>
 
         <Navbar.Collapse className="justify-content-end">
-          <Link to={CREATE_PIZZA_ROUTE}>
-            <Navbar.Text>Create pizza</Navbar.Text>
+          <Link to={CREATE_ORDER_ROUTE} className="mr-4">
+            <Navbar.Text>New Order</Navbar.Text>
+          </Link>
+
+          <Link to={PREVIOUS_ORDERS_ROUTE}>
+            <Navbar.Text>Previous Orders</Navbar.Text>
           </Link>
         </Navbar.Collapse>
       </Container>

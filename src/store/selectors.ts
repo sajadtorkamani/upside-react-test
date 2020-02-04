@@ -1,8 +1,9 @@
 import { Selector } from 'react-redux';
 import _get from 'lodash/get';
 import { OrderState } from '../reducers/orderReducer';
-import { CrustOption, IngredientOption, PizzaOption } from '../types';
+import { CrustOption, IngredientOption, Order, PizzaOption } from '../types';
 import { StoreState } from './index';
+import { OrderHistoryState } from '../reducers/orderHistoryReducer';
 
 /**
  * Get the selected size.
@@ -35,23 +36,6 @@ export const orderSelector: Selector<StoreState, OrderState> = state =>
   state.order;
 
 /**
- * Get the order total amount.
- */
-export const orderTotalSelector: Selector<StoreState, number> = state => {
-  const { order } = state;
-  const { size, crust, ingredients } = order;
-
-  const sizePrice = _get(size, 'price', 0);
-  const crustPrice = _get(crust, 'price', 0);
-  const ingredientsPrice = ingredients.reduce(
-    (total, { price }) => total + price,
-    0
-  );
-
-  return sizePrice + crustPrice + ingredientsPrice;
-};
-
-/**
  * Determine whether the pizza creation is finished and ready to be ordered.
  */
 export const isReadyToOrderSelector: Selector<StoreState, boolean> = state => {
@@ -62,9 +46,31 @@ export const isReadyToOrderSelector: Selector<StoreState, boolean> = state => {
 };
 
 /**
+ * Get the order appHistory.
+ */
+export const orderHistorySelector: Selector<
+  StoreState,
+  OrderHistoryState
+> = state => state.orderHistory;
+
+/**
  * Determine whether a given ingredient is already selected.
  */
 export const isIngredientSelected = (
   selectedIngredients: IngredientOption[],
   ingredient: IngredientOption
 ) => selectedIngredients.some(i => i.id === ingredient.id);
+
+/**
+ * Get the order total amount.
+ */
+export const calculateOrderTotal = (order: Order): number => {
+  const { size, crust, ingredients } = order;
+  const ingredientsPrice = ingredients.reduce(
+    (total, { price }) => total + price,
+    0
+  );
+
+  return size.price + crust.price + ingredientsPrice;
+};
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { formatMoney } from '../../../../lib/utils';
-import palette from '../../../../theme/palette';
+import { formatMoney } from "../../lib/utils";
+import palette from "../../theme/palette";
 
 type Props = {
   label: string;

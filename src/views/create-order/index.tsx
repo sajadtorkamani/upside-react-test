@@ -6,24 +6,24 @@ import Divider from '../../components/layout/Divider';
 import { StoreState } from '../../store';
 import { isReadyToOrderSelector } from '../../store/selectors';
 import { Heading } from '../../components/typography';
-import OrderSummary from './components/order-summary/OrderSummary';
 import OptionsList from './components/options-list/OptionsList';
+import ReviewOrder from './components/ReviewOrder';
 
 type Props = {
   isReadyToOrder: boolean;
 };
 
-const CreatePizzaView: React.FC<Props> = ({ isReadyToOrder }) => (
-  <Layout data-testid="create-pizza-view">
+const CreateOrderView: React.FC<Props> = ({ isReadyToOrder }) => (
+  <Layout data-testid="create-order-view">
     <Container>
-      <Heading>Create Pizza</Heading>
+      <Heading>Create Order</Heading>
       <OptionsList />
 
       {isReadyToOrder && (
         <>
           <Divider />
-          <Heading>Review & Order</Heading>
-          <OrderSummary />
+          <Heading>Review Order</Heading>
+          <ReviewOrder />
         </>
       )}
     </Container>
@@ -36,4 +36,4 @@ const mapStateToProps = (state: StoreState) => {
   return { isReadyToOrder };
 };
 
-export default connect(mapStateToProps)(CreatePizzaView);
+export default connect(mapStateToProps)(CreateOrderView);

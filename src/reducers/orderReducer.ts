@@ -5,6 +5,7 @@ import {
   ADD_INGREDIENT,
   CHOOSE_CRUST,
   CHOOSE_SIZE,
+  PLACE_ORDER,
   REMOVE_INGREDIENT
 } from '../action-types';
 
@@ -14,7 +15,7 @@ export type OrderState = {
   ingredients: IngredientOption[];
 };
 
-export const initialOrderState: OrderState = {
+export const INITIAL_ORDER_STATE: OrderState = {
   size: undefined,
   crust: undefined,
   ingredients: []
@@ -26,7 +27,7 @@ export const initialOrderState: OrderState = {
  * Handles all actions related to current order.
  */
 const orderReducer: Reducer<OrderState, StoreAction> = (
-  state = initialOrderState,
+  state = INITIAL_ORDER_STATE,
   action
 ) => {
   switch (action.type) {
@@ -60,6 +61,9 @@ const orderReducer: Reducer<OrderState, StoreAction> = (
         ingredients: state.ingredients.filter(i => i.id !== ingredient.id)
       };
     }
+
+    case PLACE_ORDER:
+      return INITIAL_ORDER_STATE;
 
     default:
       return state;
