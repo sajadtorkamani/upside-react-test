@@ -6,6 +6,7 @@ import {
   REMOVE_INGREDIENT
 } from '../action-types';
 import { PIZZA_CRUSTS, PIZZA_INGREDIENTS, PIZZA_SIZES } from '../data';
+import { Order } from '../types';
 import {
   addIngredient,
   chooseCrust,
@@ -13,7 +14,6 @@ import {
   placeOrder,
   removeIngredient
 } from './index';
-import { Order } from '../types';
 
 describe('chooseSize', () => {
   test('creates correct action payload', () => {

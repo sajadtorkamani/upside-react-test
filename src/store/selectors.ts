@@ -1,9 +1,8 @@
 import { Selector } from 'react-redux';
-import _get from 'lodash/get';
 import { OrderState } from '../reducers/orderReducer';
 import { CrustOption, IngredientOption, Order, PizzaOption } from '../types';
-import { StoreState } from './index';
 import { OrderHistoryState } from '../reducers/orderHistoryReducer';
+import { StoreState } from './index';
 
 /**
  * Get the selected size.
@@ -73,4 +72,3 @@ export const calculateOrderTotal = (order: Order): number => {
 
   return size.price + crust.price + ingredientsPrice;
 };
-

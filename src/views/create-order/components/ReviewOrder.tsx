@@ -10,6 +10,7 @@ import appHistory from '../../../lib/appHistory';
 import { placeOrder } from '../../../actions';
 import { StoreState } from '../../../store';
 import { PREVIOUS_ORDERS_ROUTE } from '../../../lib/constants';
+import { ToastSuccess } from '../../../components/toasts';
 
 type Props = {
   order: Order;
@@ -47,8 +48,8 @@ const mapStateToProps = (state: StoreState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
   const onPlaceOrder = (order: Order) => {
     dispatch(placeOrder(order));
-
     appHistory.push(PREVIOUS_ORDERS_ROUTE);
+    ToastSuccess.fire('Order successfully placed!');
   };
 
   return { onPlaceOrder };

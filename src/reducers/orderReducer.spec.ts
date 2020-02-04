@@ -4,11 +4,17 @@ import {
   CHOOSE_SIZE,
   PLACE_ORDER,
   REMOVE_INGREDIENT
-} from "../action-types";
-import { addIngredient, chooseCrust, chooseSize, placeOrder, removeIngredient } from "../actions";
-import { PIZZA_CRUSTS, PIZZA_INGREDIENTS, PIZZA_SIZES } from "../data";
-import orderReducer, { INITIAL_ORDER_STATE, OrderState } from "./orderReducer";
-import { Order } from "../types";
+} from '../action-types';
+import {
+  addIngredient,
+  chooseCrust,
+  chooseSize,
+  placeOrder,
+  removeIngredient
+} from '../actions';
+import { PIZZA_CRUSTS, PIZZA_INGREDIENTS, PIZZA_SIZES } from '../data';
+import { Order } from '../types';
+import orderReducer, { INITIAL_ORDER_STATE, OrderState } from './orderReducer';
 
 describe('orderReducer', () => {
   test('is initialised with the correct default state', () => {

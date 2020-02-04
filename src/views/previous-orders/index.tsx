@@ -27,7 +27,7 @@ const PreviousOrdersView: React.FC<Props> = ({ orderHistory }) => {
           orderHistory.map(({ order, createdDate }) => (
             <div key={createdDate}>
               <Subheading className="mb-4">
-                Order date: {new Date(createdDate).toDateString()}
+                Order date: {new Date(createdDate).toLocaleString()}
               </Subheading>
 
               <OrderSummary order={order} />
@@ -47,7 +47,9 @@ const PreviousOrdersView: React.FC<Props> = ({ orderHistory }) => {
 };
 
 const mapStateToProps = (state: StoreState) => {
-  const orderHistory = orderHistorySelector(state);
+  const orderHistory = orderHistorySelector(state).sort(
+    (a, b) => b.createdDate - a.createdDate
+  );
 
   return { orderHistory };
 };

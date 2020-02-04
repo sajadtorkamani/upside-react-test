@@ -10,27 +10,25 @@ import {
 } from '../../lib/constants';
 import Container from './Container';
 
-const Header: React.FC = () => {
-  return (
-    <StyledHeader bg="primary" variant="primary" fixed="top">
-      <Container className="container">
-        <Navbar.Brand className="brand">
-          <Link to={HOME_ROUTE}>iPizza</Link>
-        </Navbar.Brand>
+const Header: React.FC = () => (
+  <StyledHeader bg="primary" variant="primary" fixed="top">
+    <Container className="container">
+      <Navbar.Brand className="brand">
+        <Link to={HOME_ROUTE}>iPizza</Link>
+      </Navbar.Brand>
 
-        <Navbar.Collapse className="justify-content-end">
-          <Link to={CREATE_ORDER_ROUTE} className="mr-4">
-            <Navbar.Text>New Order</Navbar.Text>
-          </Link>
+      <Navbar.Collapse className="justify-content-end">
+        <Link to={CREATE_ORDER_ROUTE} className="mr-4">
+          <Navbar.Text>New Order</Navbar.Text>
+        </Link>
 
-          <Link to={PREVIOUS_ORDERS_ROUTE}>
-            <Navbar.Text>Previous Orders</Navbar.Text>
-          </Link>
-        </Navbar.Collapse>
-      </Container>
-    </StyledHeader>
-  );
-};
+        <Link to={PREVIOUS_ORDERS_ROUTE}>
+          <Navbar.Text>Previous Orders</Navbar.Text>
+        </Link>
+      </Navbar.Collapse>
+    </Container>
+  </StyledHeader>
+);
 
 export const HEADER_HEIGHT = 60;
 

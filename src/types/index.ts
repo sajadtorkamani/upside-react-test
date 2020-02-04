@@ -13,4 +13,3 @@ export type Order = {
   crust: CrustOption;
   ingredients: IngredientOption[];
 };
-

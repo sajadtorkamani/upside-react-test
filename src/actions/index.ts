@@ -7,7 +7,6 @@ import {
   REMOVE_INGREDIENT
 } from '../action-types';
 import { CrustOption, IngredientOption, Order, SizeOption } from '../types';
-import { OrderState } from '../reducers/orderReducer';
 
 export const chooseSize = (size: SizeOption): StoreAction => ({
   type: CHOOSE_SIZE,
